@@ -9,6 +9,10 @@ public class Core {
 
     }
 
+    public void encerrar(){
+        WebDriver driver = new ChromeDriver();
+        driver.quit();
+    }
 
 
 }
