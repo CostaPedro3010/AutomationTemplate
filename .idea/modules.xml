@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/automacao_v1/AutomationTemplate.iml" filepath="$PROJECT_DIR$/automacao_v1/AutomationTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/automationTemplate.iml" filepath="$PROJECT_DIR$/.idea/automationTemplate.iml" />
+    </modules>
+  </component>
+</project>

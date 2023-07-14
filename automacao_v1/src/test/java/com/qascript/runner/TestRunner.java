@@ -1,4 +1,4 @@
-package com.qascript;
+package com.qascript.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -6,12 +6,19 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"C:/java_dev/DTAR/Automacoes/automationTemplate/AutomacaoV1/src/test/resources/feature/Login.feature"},
+        features = {"src/test/resources/feature/Login.feature"},
+
+        tags = "@LoginTest",
+
+        glue = "steps",
         plugin = {
                 "pretty",
                 "html:target/cucumber.html",
                 "json:target/cucumber.json"
-        }
+        },
+        snippets = CucumberOptions.SnippetType.CAMELCASE
+
+
 )
 
 public class TestRunner {
