@@ -8,6 +8,7 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertEquals;
 
 public class LoginStepsDefs {
 
-    private WebDriver driver = new ChromeDriver();
+    private final WebDriver driver = new ChromeDriver();
 
 
     @Given("User enters valid username in the username field")
@@ -79,9 +80,9 @@ public class LoginStepsDefs {
         System.setProperty("webdriver.chrome.driver", "C:/Drivers/chromedriver113/chromedriver.exe");
         driver.manage().window().maximize();
         driver.get("http://demo.automationtesting.in/Register.html");
-        wait(2000);
         String textoElement = driver.findElement(By.cssSelector("div[class='col-sm-8 col-xs-8 col-md-8']")).getText();
         assertEquals("Automation Demo Site", textoElement);
+
 
 
     }
@@ -99,6 +100,32 @@ public class LoginStepsDefs {
     }
     @Quando("os campos do formulario estao preenchidos com dados validos")
     public void osCamposDoFormularioEstaoPreenchidosComDadosValidos() {
-        WebElement Address = driver.findElement(By.cssSelector("input[ng-model='EmailAdress']"));
+        WebElement emailAddress = driver.findElement(By.cssSelector("input[ng-model='EmailAdress']"));
+        emailAddress.sendKeys("rodrigo@terra.com.br");
+
+        WebElement phone = driver.findElement(By.cssSelector("input[ng-model='Phone']"));
+        phone.sendKeys("5197918266");
+
+        WebElement selectElementGender = driver.findElement(By.cssSelector("input[value='Male']"));
+        selectElementGender.click();
+
+        WebElement Hobbies = driver.findElement(By.cssSelector("input[id='checkbox2']"));
+        Hobbies.click();
+
+        WebElement listLanguage = driver.findElement(By.cssSelector("div[id='msdd']"));
+        listLanguage.click();
+
+        WebElement scrollLanguage = driver.findElement(By.cssSelector("ul[style='list-style:none;max-height: 230px;overflow: scroll;']"));
+        JavascriptExecutor jse = (JavascriptExecutor) driver;
+        jse.executeScript(("arguments[0].scrollTo(0,"+ 1000 +");"), scrollLanguage);
+
+        WebElement Language = driver.findElement(By.xpath("//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul/li[29]/a"));
+        Language.click();
+
+
+
+
+
+        driver.quit();
     }
 }

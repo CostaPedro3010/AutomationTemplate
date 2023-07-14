@@ -6,17 +6,11 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/resources/feature/Login.feature"},
-
-        tags = "@LoginTest",
-
-        glue = "steps",
-        plugin = {
-                "pretty",
-                "html:target/cucumber.html",
-                "json:target/cucumber.json"
-        },
-        snippets = CucumberOptions.SnippetType.CAMELCASE
+        features = {"src/test/resources/feature/"},
+//        features = "src/test/resources/features/",
+        glue = "com.qascript.steps",
+        tags = "@demo",
+        plugin = {"pretty", "html:target/cucumber-reports"}
 
 
 )
