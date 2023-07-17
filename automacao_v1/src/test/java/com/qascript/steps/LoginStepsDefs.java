@@ -8,7 +8,6 @@ import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.E;
 import io.cucumber.java.pt.Quando;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -115,17 +114,22 @@ public class LoginStepsDefs {
         WebElement listLanguage = driver.findElement(By.cssSelector("div[id='msdd']"));
         listLanguage.click();
 
-        WebElement scrollLanguage = driver.findElement(By.cssSelector("ul[style='list-style:none;max-height: 230px;overflow: scroll;']"));
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript(("arguments[0].scrollTo(0,"+ 1000 +");"), scrollLanguage);
+        scrollForElement(driver, By.cssSelector(""));
 
-        WebElement Language = driver.findElement(By.xpath("//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul/li[29]/a"));
-        Language.click();
+//        WebElement scrollLanguage = driver.findElement(By.cssSelector("ul[style='list-style:none;max-height: 230px;overflow: scroll;']"));
+//        JavascriptExecutor jse = (JavascriptExecutor) driver;
+//        jse.executeScript(("arguments[0].scrollTo(0,"+ 1000 +");"), scrollLanguage);
+//
+//        WebElement Language = driver.findElement(By.xpath("//*[@id='basicBootstrapForm']/div[7]/div/multi-select/div[2]/ul/li[29]/a"));
+//        Language.click();
 
 
 
 
 
         driver.quit();
+    }
+
+    private void scrollForElement(WebDriver driver, By cssSelector) {
     }
 }
